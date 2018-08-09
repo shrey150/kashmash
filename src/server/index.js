@@ -7,12 +7,9 @@ const path = require("path");
 app.use(express.static(CLIENT_ROOT));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(CLIENT_ROOT, "index.html"));
-});
-
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
+    console.
     console.log(CLIENT_ROOT);
 });
 
