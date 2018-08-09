@@ -9,7 +9,6 @@ app.use(bodyParser.json());
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
-    console.
     console.log(CLIENT_ROOT);
 });
 
