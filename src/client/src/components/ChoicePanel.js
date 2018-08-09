@@ -8,32 +8,42 @@ class ChoicePanel extends Component {
         super(props);
 
         this.state = {
-            choices: [
-                {
-                    value: props.left,
-                    className: "choice"
-                },
-                {
-                    value: props.right,
-                    className: "choice"
-                }
-            ]
+            left: {
+                value: props.left,
+                className: "choice"
+            },
+            right: {
+                value: props.right,
+                className: "choice"
+            }
         };
     }
 
     handleClick(value) {
-        const i = this.state.choices.findIndex(x => x.value === value);
-        const j = this.returnOtherEl(i);
-        const newChoices = this.state.choices;
 
-        newChoices[i].className = "choice won";
-        newChoices[j].className = "choice lost";
+        const s = this.state;
+        let winner, loser;
 
-        this.setState({ choices: newChoices });
+        if (s.left.value === value) {
+            s.left.className = "choice won";
+            s.right.className = "choice lost";
+
+            winner = s.left.value;
+            loser = s.right.value;
+        }
+        else {
+            s.left.className = "choice lost";
+            s.right.className = "choice won";
+
+            winner = s.right.value;
+            loser = s.left.value;
+        }
+
+        this.setState(s);
 
         axios.post("/api/reportMatch", {
-            winner: newChoices[i].value,
-            loser: newChoices[j].value
+            winner: winner,
+            loser: loser
         })
         .then((result) => {
             console.log(result);
@@ -43,9 +53,9 @@ class ChoicePanel extends Component {
         });
     }
 
-    renderChoice(i) {
+    renderChoice(val) {
 
-        const c = this.state.choices[i];
+        const c = val === "left" ? this.state.left : this.state.right;
 
         return (
             <Choice
@@ -63,9 +73,9 @@ class ChoicePanel extends Component {
     render() {
         return (
             <div className="choice-panel">
-                {this.renderChoice(0)}
+                {this.renderChoice("left")}
                 <p>or</p>
-                {this.renderChoice(1)}
+                {this.renderChoice("right")}
             </div>
         );
     }
