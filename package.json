@@ -1,0 +1,24 @@
+{
+  "name": "kashmash",
+  "version": "1.0.0",
+  "description": "Lead your favorite portmankash to victory",
+  "main": "index.js",
+  "author": "Shrey Pandya",
+  "license": "MIT",
+  "scripts": {
+    "client": "cd src/client && yarn start",
+    "server": "nodemon src/server/index.js",
+    "build": "cd src/client && yarn build",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "dev:server": "cd client && yarn build && cd .. && yarn start",
+    "start": "node src/server/index.js"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
