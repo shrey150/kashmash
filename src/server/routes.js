@@ -6,6 +6,11 @@ const { CLIENT_ROOT } = require("./constants");
 
 module.exports = {
 
+    reportMatch: (req, res, file) => {
+        console.log(req.body);
+        res.send("Match data recieved.");
+    },
+
     fetchFile: (req, res, file) => {
 
         res.statusCode = 200;
@@ -24,5 +29,4 @@ module.exports = {
         return res.end();
 
     }
-
 };
