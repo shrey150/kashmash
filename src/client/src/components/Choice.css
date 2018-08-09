@@ -1,0 +1,28 @@
+.choice {
+    border-width: 0px;
+    width: 500px;
+    text-align: center;
+    display: inline-block;
+    font-size: 36px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background: whitesmoke;
+}
+
+/*
+.choice.left {
+    background: red;
+}
+
+.choice.right {
+    background: blue;
+}
+*/
+
+.choice.won {
+    background: rgb(163, 248, 163);
+}
+
+.choice.lost {
+    background: rgb(255, 175, 175);
+}
