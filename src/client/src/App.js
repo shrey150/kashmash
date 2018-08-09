@@ -6,20 +6,20 @@ import { DB_KASHES } from "./data/kashes";
 class App extends Component {
 
 	renderChoicePanel() {
-
-		const choice1 = this.randomEl(DB_KASHES);
-		const choice2 = this.randomEl(DB_KASHES);
-
+		const c = this.randElNoDupes(DB_KASHES);
 		return (
-			<ChoicePanel left={choice1} right={choice2} />
+			<ChoicePanel left={c[0]} right={c[1]} />
 		);
 	}
 
-	randomElNoDupes(arr) {
-		const f = randomEl();
+	randElNoDupes(arr) {
+		let i = this.randEl(arr);
+		let j = i;
+		while (i === j) j = this.randEl(arr);		
+		return [i, j];
 	}
 
-	randomEl(arr) {
+	randEl(arr) {
 		return arr[Math.floor(Math.random()*arr.length)];
 	}
 
