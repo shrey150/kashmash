@@ -36,3 +36,18 @@ server.listen(PORT, HOSTNAME, () => {
 })
 
 */
+
+/*
+
+	randElNoDupes(arr) {
+		let i = this.randEl(arr);
+		let j = i;
+		while (i === j) j = this.randEl(arr);		
+		return [i, j];
+	}
+
+	randEl(arr) {
+		return arr[Math.floor(Math.random()*arr.length)];
+    }
+    
+    */

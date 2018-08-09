@@ -15,3 +15,11 @@ app.listen(PORT, () => {
 app.post("/api/reportMatch", (req, res) => {
     routes.reportMatch(req, res);
 });
+
+app.post("/api/requestKash", (req, res) => {
+    routes.requestKash(req, res);
+});
+
+app.get("/api/submitKash", (req, res) => {
+    routes.submitKash(req, res);
+});
