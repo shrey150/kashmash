@@ -52,6 +52,8 @@ class ChoicePanel extends Component {
         .catch((error) => {
             console.error(error);
         });
+
+        this.props.onSubmit();
     }
 
     renderChoice(val) {
