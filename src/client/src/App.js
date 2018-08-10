@@ -10,7 +10,15 @@ class App extends Component {
 
 	constructor() {
 		super();
-		this.state = { left: null, right: null, successDisplayed: false };
+		this.state = {
+			data: {
+				left: null, right: null
+			},
+			alert: {
+				color: "success",
+				isOpen: false
+			}
+		};
 	}
 	
 	componentDidMount() {
@@ -20,8 +28,10 @@ class App extends Component {
 	fetchKashes() {
 		axios.post("/api/requestKash")
         .then((res) => {
-			this.setState({ left: res.data[0].name, right: res.data[1].name, successDisplayed: false });
-			console.log(this.state);
+			const s = this.state;
+			s.data.left = res.data[0].name;
+			s.data.right = res.data[1].name;
+			this.setState(s);
         })
         .catch((error) => {
             console.error(error);
@@ -30,19 +40,26 @@ class App extends Component {
 
 	successSubmit() {
 		const s = this.state;
-		s.successDisplayed = true;
+		s.alert.isOpen = true;
 		this.setState(s);
+
+		this.hideAlert(3000);
 	}
 
 	choiceSubmit() {
 		const s = this.state;
-		s.left = s.right = null;
+		s.data.left = s.data.right = null;
 
 		this.setState(s);
-
-		console.log(this.state);
-
 		this.fetchKashes();
+	}
+
+	hideAlert(time) {
+		setTimeout(() => {
+			const s = this.state;
+			s.alert.isOpen = false;
+			this.setState(s);
+		}, time);
 	}
 
 	render() {
@@ -51,12 +68,12 @@ class App extends Component {
 				<div className="App-header">
 					<div className="App-center">
 						<h1 className="App-title">KashMash</h1>
-						<p className="App-intro">Lead your portmankash to victory</p>
+						<p className="App-intro">Lead your favorite portmankash to victory</p>
 					</div>
 					<SubmitMenu onSubmit={() => this.successSubmit()}/>
 				</div>
-				{ this.state.successDisplayed ? <Alert color="success">Added portmankash to database. Thanks for making the world a better place!</Alert> : null }
-				{ this.state.left ? <ChoicePanel left={this.state.left} right={this.state.right} onSubmit={() => this.choiceSubmit()} /> : <p className="App-intro">Loading</p>}
+				<Alert color={this.state.alert.color} isOpen={this.state.alert.isOpen}>Added portmankash to database. Thanks for making the world a better place!</Alert>
+				{ this.state.data.left ? <ChoicePanel left={this.state.data.left} right={this.state.data.right} onSubmit={() => this.choiceSubmit()} /> : <p className="App-intro">Loading</p>}
 			</div>
 		);
 	}

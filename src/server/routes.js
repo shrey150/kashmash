@@ -17,7 +17,6 @@ module.exports = {
     },
 
     submitKash: (req, res) => {
-        console.log(req.body);
         db.submitKash(req, res);
     },
 
