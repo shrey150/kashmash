@@ -7,9 +7,9 @@ const db = require("./db");
 
 module.exports = {
 
-    reportMatch: (req, res, file) => {
+    reportMatch: (req, res) => {
         console.log(req.body);
-        res.send("Match data recieved.");
+        db.reportMatch(req, res);
     },
 
     requestKash: (req, res) => {
