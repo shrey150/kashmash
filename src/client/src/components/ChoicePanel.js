@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Choice from "./Choice";
 import axios from "axios";
+import "./ChoicePanel.css";
 
 class ChoicePanel extends Component {
 
@@ -74,7 +75,7 @@ class ChoicePanel extends Component {
         return (
             <div className="choice-panel">
                 {this.renderChoice("left")}
-                <p>or</p>
+                <p className="choice-text">or</p>
                 {this.renderChoice("right")}
             </div>
         );

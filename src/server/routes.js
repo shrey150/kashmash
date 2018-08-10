@@ -13,7 +13,6 @@ module.exports = {
     },
 
     requestKash: (req, res) => {
-        console.log(req.body);
         db.retrieveKashes(req, res);
     },
 
