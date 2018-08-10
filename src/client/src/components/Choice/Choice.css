@@ -1,11 +1,11 @@
 .choice {
     border-width: 0px;
-    width: 25%;
+    width: 500px;
     text-align: center;
     font-size: 36px;
     padding-top: 5%;
     padding-bottom: 5%;
-    background: whitesmoke;
+    background: rgb(230, 230, 230);
     margin: auto;
 }
 
@@ -15,4 +15,8 @@
 
 .choice.lost {
     background: rgb(255, 175, 175);
+}
+
+.choice:hover {
+    background: rgb(204, 204, 204);
 }

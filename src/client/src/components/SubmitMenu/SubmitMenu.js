@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "./SubmitMenu.css";
 import axios from "axios";
+import Button from "../Button/Button";
+import Input from "../Input/Input";
 
 class SubmitMenu extends Component {
 
@@ -25,8 +27,8 @@ class SubmitMenu extends Component {
     render() {
         return (
             <div className="submitMenu">
-                <input className="submitPrompt" type="text" placeholder="Babblekash" onChange={evt => this.updateInput(evt)} />
-                <button className="submitButton" onClick={this.submitKash}>Submit Portmankash</button>
+                <Input className="submitPrompt" placeholder="Babblekash" onChange={evt => this.updateInput(evt)} />
+                <Button className="submitButton" onClick={() => this.submitKash()}>Submit Portmankash</Button>
             </div>
         );
     }

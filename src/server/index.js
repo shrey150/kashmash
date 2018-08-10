@@ -23,3 +23,7 @@ app.post("/api/requestKash", (req, res) => {
 app.post("/api/submitKash", (req, res) => {
     routes.submitKash(req, res);
 });
+
+app.post("/api/fetchTopKashes", (req, res) => {
+    routes.fetchTopKashes(req, res);
+});

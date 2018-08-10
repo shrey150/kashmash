@@ -6,9 +6,7 @@
 
 .submitButton {
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: none;
-    border-style: none;
+    border-bottom-right-radius: 5px;  
     float: right;
     width: 200px;
     height: 50px;
@@ -19,10 +17,4 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     height: 50px;
-    padding: 10px;
-    border-style: none;
-}
-
-.submitPrompt::placeholder {
-    
 }

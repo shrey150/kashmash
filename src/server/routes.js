@@ -20,22 +20,22 @@ module.exports = {
         db.submitKash(req, res);
     },
 
-    fetchFile: (req, res, file) => {
+    fetchTopKashes: (req, res) => {
+        db.fetchTopKashes(req, res);
+    },
 
+    fetchFile: (req, res, file) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", fileUtils.contentType(file));
         fs.readFile(path.join(CLIENT_ROOT, file), (err, data) => {
             if (err) console.log(err);
             else res.end(data);
         });
-
     },
 
     notFound: (req, res) => {
-
         res.statusCode = 404;
         res.write("404: File not found.");
         return res.end();
-
     }
 };
