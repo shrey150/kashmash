@@ -14,6 +14,10 @@ class App extends Component {
 	}
 	
 	componentDidMount() {
+		this.fetchKashes();
+	}
+
+	fetchKashes() {
 		axios.post("/api/requestKash")
         .then((res) => {
 			this.setState({ left: res.data[0].name, right: res.data[1].name, successDisplayed: false });
@@ -30,6 +34,17 @@ class App extends Component {
 		this.setState(s);
 	}
 
+	choiceSubmit() {
+		const s = this.state;
+		s.left = s.right = null;
+
+		this.setState(s);
+
+		console.log(this.state);
+
+		this.fetchKashes();
+	}
+
 	render() {
 		return (
 			<div>
@@ -38,10 +53,10 @@ class App extends Component {
 						<h1 className="App-title">KashMash</h1>
 						<p className="App-intro">Lead your portmankash to victory</p>
 					</div>
-					<SubmitMenu onSubmit={() => this.successSubmit()}/>		
+					<SubmitMenu onSubmit={() => this.successSubmit()}/>
 				</div>
 				{ this.state.successDisplayed ? <Alert color="success">Added portmankash to database. Thanks for making the world a better place!</Alert> : null }
-				{ this.state.left ? <ChoicePanel left={this.state.left} right={this.state.right} /> : <p className="App-intro">Loading</p>}
+				{ this.state.left ? <ChoicePanel left={this.state.left} right={this.state.right} onSubmit={() => this.choiceSubmit()} /> : <p className="App-intro">Loading</p>}
 			</div>
 		);
 	}
