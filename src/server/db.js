@@ -23,6 +23,7 @@ module.exports = {
         MongoClient.connect(MONGO_URI, (err, db) => {
             if (err) console.error(err);
             else {
+                console.log(req.body);
                 db.db().collection("kashes").insertOne({ name: req.body.name, score: 1000 });
                 db.close();
 

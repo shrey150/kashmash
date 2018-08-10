@@ -1,23 +1,13 @@
 .choice {
     border-width: 0px;
-    width: 500px;
+    width: 25%;
     text-align: center;
-    display: inline-block;
     font-size: 36px;
     padding-top: 5%;
     padding-bottom: 5%;
     background: whitesmoke;
+    margin: auto;
 }
-
-/*
-.choice.left {
-    background: red;
-}
-
-.choice.right {
-    background: blue;
-}
-*/
 
 .choice.won {
     background: rgb(163, 248, 163);

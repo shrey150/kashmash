@@ -20,6 +20,6 @@ app.post("/api/requestKash", (req, res) => {
     routes.requestKash(req, res);
 });
 
-app.get("/api/submitKash", (req, res) => {
+app.post("/api/submitKash", (req, res) => {
     routes.submitKash(req, res);
 });

@@ -1,0 +1,27 @@
+.submitMenu {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.submitButton {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: none;
+    border-style: none;
+    float: right;
+    width: 200px;
+    height: 50px;
+    font-size: 100%;
+}
+
+.submitPrompt {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 50px;
+    padding: 10px;
+}
+
+.submitPrompt::placeholder {
+    
+}
