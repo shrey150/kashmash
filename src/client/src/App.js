@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import ChoicePanel from "./components/ChoicePanel";
-import SubmitMenu from "./components/SubmitMenu";
+import ChoicePanel from "./components/ChoicePanel/ChoicePanel";
+import SubmitMenu from "./components/SubmitMenu/SubmitMenu";
 import axios from "axios";
 import { Alert } from "reactstrap";
+import Leaderboard from './components/Leaderboard/Leaderboard';
 
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
 			},
 			alert: {
 				color: "success",
+				text: "Added portmankash to database. Thanks for making the world a better place!",
 				isOpen: false
 			}
 		};
@@ -71,9 +73,13 @@ class App extends Component {
 						<p className="App-intro">Lead your favorite portmankash to victory</p>
 					</div>
 					<SubmitMenu onSubmit={() => this.successSubmit()}/>
+					<Leaderboard />
 				</div>
-				<Alert color={this.state.alert.color} isOpen={this.state.alert.isOpen}>Added portmankash to database. Thanks for making the world a better place!</Alert>
-				{ this.state.data.left ? <ChoicePanel left={this.state.data.left} right={this.state.data.right} onSubmit={() => this.choiceSubmit()} /> : <p className="App-intro">Loading</p>}
+				<Alert color={this.state.alert.color} isOpen={this.state.alert.isOpen}>{this.state.alert.text}</Alert>
+				{ this.state.data.left
+					? <ChoicePanel left={this.state.data.left} right={this.state.data.right} onSubmit={() => this.choiceSubmit()} />
+					: <p className="App-intro">Loading</p> 
+				}
 			</div>
 		);
 	}

@@ -58,8 +58,24 @@ module.exports = {
 
                         db.db().collection("kashes").updateOne({ name: req.body.winner }, { $set: { score: newWinScore }});
                         db.db().collection("kashes").updateOne({ name: req.body.loser }, { $set: { score: newLoseScore }});
+                        db.close();
 
                         res.send("Match data updated.");
+                    }
+                });
+            }
+        });
+    },
+    fetchTopKashes: (req, res) => {
+        MongoClient.connect(MONGO_URI, (err, db) => {
+            if (err) console.error(err);
+            else {
+                db.db().collection("kashes").find().sort({ score: -1 }).toArray((err, result) => {
+                    if (err) console.err(err);
+                    else {
+                        res.setHeader("Content-Type", "application/json");
+                        res.send(JSON.stringify(result));
+                        db.close();
                     }
                 });
             }
