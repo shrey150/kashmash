@@ -5,7 +5,7 @@ import SubmitMenu from "./components/SubmitMenu/SubmitMenu";
 import axios from "axios";
 import { Alert } from "reactstrap";
 import Leaderboard from './components/Leaderboard/Leaderboard';
-
+import constants from "./constants";
 
 class App extends Component {
 
@@ -17,7 +17,7 @@ class App extends Component {
 			},
 			alert: {
 				color: "success",
-				text: "Added portmankash to database. Thanks for making the world a better place!",
+				text: constants.ALERT_SUCCESS,
 				isOpen: false
 			}
 		};
@@ -40,15 +40,23 @@ class App extends Component {
 		});
 	}
 
-	successSubmit() {
+	openAlert(success) {
 		const s = this.state;
 		s.alert.isOpen = true;
-		this.setState(s);
+		
+		if (success) {
+			s.alert.color = "success";
+			s.alert.text = constants.ALERT_SUCCESS;
+		} else {
+			s.alert.color = "danger";
+			s.alert.text = constants.ALERT_FAIL;
+		}
 
+		this.setState(s);
 		this.hideAlert(3000);
 	}
 
-	choiceSubmit() {
+	resetChoices() {
 		const s = this.state;
 		s.data.left = s.data.right = null;
 
@@ -72,12 +80,12 @@ class App extends Component {
 						<h1 className="App-title">KashMash</h1>
 						<p className="App-intro">Lead your favorite portmankash to victory</p>
 					</div>
-					<SubmitMenu onSubmit={() => this.successSubmit()}/>
+					<SubmitMenu onSuccess={() => this.openAlert(true)} onFail={() => this.openAlert(false)} />
 					<Leaderboard />
 				</div>
 				<Alert color={this.state.alert.color} isOpen={this.state.alert.isOpen}>{this.state.alert.text}</Alert>
 				{ this.state.data.left
-					? <ChoicePanel left={this.state.data.left} right={this.state.data.right} onSubmit={() => this.choiceSubmit()} />
+					? <ChoicePanel left={this.state.data.left} right={this.state.data.right} onSuccess={() => this.resetChoices()} />
 					: <p className="App-intro">Loading</p> 
 				}
 			</div>
