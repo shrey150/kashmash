@@ -85,7 +85,7 @@ class App extends Component {
 				</div>
 				<Alert color={this.state.alert.color} isOpen={this.state.alert.isOpen}>{this.state.alert.text}</Alert>
 				{ this.state.data.left
-					? <ChoicePanel left={this.state.data.left} right={this.state.data.right} onSuccess={() => this.resetChoices()} />
+					? <ChoicePanel left={this.state.data.left} right={this.state.data.right} onSubmit={() => this.resetChoices()} />
 					: <p className="App-intro">Loading</p> 
 				}
 			</div>
