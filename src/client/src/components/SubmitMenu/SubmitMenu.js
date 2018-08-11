@@ -12,12 +12,18 @@ class SubmitMenu extends Component {
     }
 
     submitKash = () => {
-        axios.post("/api/submitKash", {name: this.state.input})
-        .then(result => {
-            console.log(result);
-            this.props.onSubmit();
-        })
-        .catch(err => console.error(err));
+        if (this.state.input.trim() !== "") {
+            if (this.state.input.toLowerCase().includes("kash")) {
+
+                axios.post("/api/submitKash", {name: this.state.input})
+                .then(result => {
+                    console.log(result);
+                    this.props.onSuccess();
+                })
+                .catch(err => console.error(err));
+
+            } else this.props.onFail();
+        } else this.props.onFail();
     }
 
     updateInput(evt) {
