@@ -9,6 +9,12 @@
     margin: auto;
 }
 
+@media only screen and (max-width: 500px) {
+    .choice {
+        width: 100%;
+    }
+}
+
 .choice.won {
     background: rgb(163, 248, 163);
 }
