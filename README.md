@@ -1,5 +1,5 @@
 KashMash
-==============
+========
 
 ## [Live Demo](http://kashmash.herokuapp.com)
 
@@ -11,17 +11,26 @@ Based on an inside joke, the frontend uses React and the backend uses Node (via 
 
 # Setup
 
-Before running, make sure you set up your MongoDB URL in `src/server/constants.js`.
+First, set up a MongoDB database, then add your connection string as an environment variable:
 
 ```
-npm                                 # install backend deps 
-node scripts/mongo-setup.js         # initialize DB
+export MONGO_URI=[YOUR MONGO DB URI]            # Mac/Linux
+set MONGO_URI=[YOUR MONGO DB URI]               # Windows
+```
+
+Then proceed with the rest of the setup:
+
+```
+npm                                             # install backend deps 
+node scripts/mongo-setup.js                     # initialize DB
 
 cd src/client           
-npm                                 # install frontend deps
+npm                                             # install frontend deps
 ```
 
+
 # Running the project
+
 ```
 yarn dev                    # runs development server
 ```
