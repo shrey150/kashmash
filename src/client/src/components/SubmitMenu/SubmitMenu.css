@@ -9,12 +9,36 @@
     border-bottom-right-radius: 5px;  
     float: right;
     width: 200px;
-    height: 50px;
     font-size: 100%;
 }
 
 .submitPrompt {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    height: 50px;
+}
+
+.mobileSubmit {
+    border-radius: 5px;
+}
+
+.mobilePrompt {
+    border: 1px rgb(170, 170, 170) solid;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Mobile */
+@media only screen and (max-width: 1000px) {
+    .desktopSubmit {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1000px) {
+    .mobileSubmit {
+        display: none;
+        visibility: hidden;
+    }
 }

@@ -9,6 +9,7 @@
     margin: auto;
 }
 
+/* Mobile */
 @media only screen and (max-width: 500px) {
     .choice {
         width: 100%;

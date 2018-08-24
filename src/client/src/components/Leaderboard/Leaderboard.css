@@ -1,19 +1,31 @@
 .openButton {
-    height: 50px;
-    width: 200px;
     border-radius: 5px;
     position: absolute;
     top: 5px;
     left: 5px;
+
 }
 
 .closeButton {
     border-radius: 5px;
-    height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .scoreBadge {
     float: right;
+}
+
+/* Mobile */
+@media only screen and (max-width: 1000px) {
+    .desktop-msg {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1000px) {
+    .mobile-msg {
+        display: none;
+        visibility: hidden;
+    }
 }

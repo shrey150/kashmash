@@ -3,6 +3,7 @@ import "./Leaderboard.css";
 import Button from "../Button/Button";
 import { Modal, ModalHeader, ModalBody, ModalFooter, ListGroup, ListGroupItem, Badge } from "reactstrap";
 import axios from "axios";
+import { IoIosPodium } from "react-icons/io";
 
 class Leaderboard extends Component {
 
@@ -30,21 +31,20 @@ class Leaderboard extends Component {
     }
 
     openModal = () => {
-        const s = this.state;
-        s.modal = !this.state.modal;
-        this.setState(s);
+        this.setState({ modal: !this.state.modal });
     }
 
     closeModal = () => {
-        const s = this.state;
-        s.modal = false;
-        this.setState(s);
+        this.setState({ modal: false });
     }
 
     render() {
         return (
             <div>
-                <Button className="openButton" onClick={this.openModal}>Top Portmankashes</Button>
+                <Button className="openButton" onClick={this.openModal}>
+                    <span className="desktop-msg">Top Portmankashes</span>
+                    <span className="mobile-msg"><IoIosPodium /></span>
+                </Button>
                 <Modal isOpen={this.state.modal}>
                     <ModalHeader>Top Portmankashes</ModalHeader>
                     <ModalBody>
