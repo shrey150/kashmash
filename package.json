@@ -6,9 +6,9 @@
   "author": "Shrey Pandya",
   "license": "MIT",
   "scripts": {
-    "client": "cd src/client && npm start",
+    "client": "cd src/client && yarn start",
     "server": "nodemon src/server/index.js",
-    "build": "cd src/client && npm run build",
+    "build": "cd src/client && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "dev:server": "cd client && yarn build && cd .. && yarn start",
     "start": "node src/server/index.js"
