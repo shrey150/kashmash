@@ -21,11 +21,11 @@ set MONGO_URI=[YOUR MONGO DB URI]               # Windows
 Then proceed with the rest of the setup:
 
 ```
-npm                                             # install backend deps 
+npm install                                     # install backend deps 
 node scripts/mongo-setup.js                     # initialize DB
 
 cd src/client           
-npm                                             # install frontend deps
+npm install                                     # install frontend deps
 ```
 
 
