@@ -45,7 +45,7 @@ class Leaderboard extends Component {
                     <span className="desktop-msg">Top Portmankashes</span>
                     <span className="mobile-msg"><IoIosPodium /></span>
                 </Button>
-                <Modal isOpen={this.state.modal}>
+                <Modal isOpen={this.state.modal} toggle={this.closeModal}>
                     <ModalHeader>Top Portmankashes</ModalHeader>
                     <ModalBody>
                         <ListGroup>
